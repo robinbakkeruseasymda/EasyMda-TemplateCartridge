@@ -1,0 +1,32 @@
+<%
+	Object obj = arg.getElement(); 
+
+	String enumName = null;
+	String targetClassname = null;
+	String targetPackage = null;
+	String targetFileExt = null;
+	String targetDir = null;
+	String jetPackage = null;
+	String jetClassname = null;
+	String jetExtension = null;
+	int  rank = 5;
+	TemplateMergeStrategy mergeStrategy = null;
+	String appliesTo = null;
+
+	if (obj instanceof ICartridgeTemplateType) {
+		ICartridgeTemplateType carttype = (ICartridgeTemplateType) arg.getElement(); 
+		enumName = carttype.getEnumName();
+		targetClassname = carttype.getTargetClassname();
+		targetPackage = carttype.getTargetPackage();
+		targetFileExt = carttype.getTargetFileExtenstion();
+		targetDir = carttype.getTargetDir();
+		jetPackage = carttype.getJetPackage();
+		jetClassname = carttype.getJetClassname();
+		jetExtension = carttype.getJetExtension();
+		rank = carttype.getRank();
+		mergeStrategy = carttype.getMergeStrategy();
+		appliesTo = carttype.getAppliesTo();
+	} else {
+		System.out.println("arg.element is not of the right type: " + obj);
+	}
+%>

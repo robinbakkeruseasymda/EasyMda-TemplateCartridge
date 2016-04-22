@@ -1,0 +1,32 @@
+<%@ jet package="cartridge" 
+imports="java.util.* flca.mda.api.util.* mda.template.type.* flca.mda.codegen.data.* "
+class="TemplateDefinition" %>
+<%@ include file="jetarg.jetinc" %>
+<%@ include file="carttype.jetinc" %>
+
+<% 	String jetPath = "/" + jetPackage + "/" + jetClassname + jetExtension;
+	String s1 = "todo"; %>
+		
+Copy/past the following lines in respectively the Tid class, and the class with Template definitions.
+	
+	<%=enumName%>,
+	
+	result.add(makeTemplate_<%=enumName%>());
+	
+	private ITemplate makeTemplate_<%=enumName%>() {
+		Template r = new Template();
+		r.setName(Tid.<%=enumName%>.name());
+		r.setPackage("<%=targetPackage%>");
+		r.setClassname("<%=targetClassname%>");
+		r.setTargetDir("<%=targetDir%>");
+		r.setFileExtension("<%=targetFileExt%>");
+		r.setGeneratorFqn(backend.Entity.class.getName());
+		r.setJetPath("<%=jetPath%>");
+		r.setMergeStrategy(TemplateMergeStrategy.<%=mergeStrategy%>);
+		r.setCartridgeName(CARTRIDGE_NAME);
+		r.setApplyToClasses(new Class<?> [] {<%=appliesTo%>});
+		r.setRank(<%=rank%>);
+		return r;
+	}
+	
+	

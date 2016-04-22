@@ -1,0 +1,14 @@
+<%@ jet package="cartridge" 
+imports="java.util.* flca.mda.api.util.* mda.template.type.* mda.template.* flca.mda.codegen.data.* cartridge.* "
+class="JetFile" %>
+<%@ include file="jetarg.jetinc" %>
+<%@ include file="carttype.jetinc" %>
+<% TypeUtils tu = new TypeUtils(); %>
+<% Template template = CartridgeTemplateConstants.getJetTargetTemplate(); 
+	template.setName(enumName);
+	template.setPackage(jetPackage);
+	template.setClassname(jetClassname);
+	template.setTargetDir("src-gen");
+	template.setFileExtension(jetExtension);
+%>
+<% tu.generate(arg.getElementClass(), template, arg); %>
