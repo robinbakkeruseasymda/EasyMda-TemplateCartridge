@@ -1,0 +1,19 @@
+<%@ jet package="todo" 
+imports="java.util.* flca.mda.api.util.* flca.mda.codegen.data.* com.todo.itype.* com.todo.api.* "
+class="Todo1" %>
+<%@ include file="../include/java-class-init.jetinc" %>
+Shortcuts for input arguments that can be used:
+element = <%=element%>
+cc = <%=cc.getName()%>
+classname = <%=classname%>
+pck = <%=pck%>
+
+<% ITodo1 itodo1 = (ITodo1) element;%>
+The interface gives:
+<%=itodo1.sayHello()%>
+
+And we can access the properties
+<% List<Fw> allFws = tu.getFields(cc, EXC, FwSelectType.ID); %>
+<% for (Fw fw : allFws) {%>
+ <%=fw.name()%> : <%=fw.type()%>
+<% } %>

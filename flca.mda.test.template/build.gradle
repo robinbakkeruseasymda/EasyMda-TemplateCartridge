@@ -10,6 +10,7 @@ buildDir = "target"
 dependencies {
 	compile "commons-lang:commons-lang:2.6",
 		"org.slf4j:slf4j-api:1.7.7",
+		"ch.qos.logback:logback-classic:1.1.3",
 		"junit:junit:4.9",
 		"easymda:flca.mda.common.api:${easymda_version}",
 		"easymda:flca.mda.generator:${easymda_version}",
